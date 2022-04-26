@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>glider</title>
+	<link rel="stylesheet" type="text/css" href="assets/glider.min.css">
+	<style>
+		figure {
+			margin: 0;
+		}
+		*:focus { /* @TODO remove outline for non keyboard users  */
+			outline: #000 2px solid;
+		}
+		
+		.glider {
+			height: 75vh;
+			margin-left: -2rem;
+			padding-bottom: 3rem;
+		}
+
+		.glider-track {
+			height: 100%;
+		}
+
+		.glider-slide {
+			height: 100% !important;
+			width: auto !important;
+			border-left: 2rem  solid white !important;
+		}
+
+		.glider-slide img {
+			height: 100% !important;
+			max-width: unset;
+			width: auto;
+		}
+
+		.glider-nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 3rem;
+		}
+
+		.glider-dots {
+			user-select: none;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start; 
+			margin: unset;
+			padding: unset;
+		}
+		
+		.glider-arrows {
+			display: flex;
+			width: fit-content;
+			justify-content: space-between;
+		}
+		.glider-prev, .glider-next {
+				position: unset;
+				background: none;
+				cursor: pointer;
+				color: #666;	
+			}
+
+		.glider-prev {
+			left: 0;
+		}
+		.glider-next {
+			right: 0;
+			margin-left: 4rem;
+		}
+
+		.glider-arrows svg path { stroke: #858585; transition: 500ms ease stroke;}
+		.glider-arrows button:hover svg path ,
+		.glider-arrows button:focus svg path {
+			stroke: #000;
+		}
+
+		.glider-dot.active,
+		.glider-dot:hover,
+		.glider-dot:focus {
+			background-color: #FF5E5E; ;
+		}
+
+		</style>
+</head>
+<body>
+	<section class="glider-contain">
+		<figure class="glider">
+			<figure class="glide">
+				<img src="images/slide0.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+				<img src="images/slide1.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide2.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide3.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide4.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide5.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide6.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+			<figure class="glide">
+
+				<img src="images/slide7.jpg">
+				<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. </figcaption>
+			</figure>
+		</figure>
+
+		<nav class="glider-nav">
+			<div role="tablist" class="dots"></div>
+			<div class="glider-arrows">
+				<button aria-label="Previous" class="glider-prev"><svg width="87" height="59" viewBox="0 0 87 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M2 30L87 30M2 30L31 58M2 30L31 0.999995"  stroke-width="2"/>
+					</svg>
+				</button>
+				<button aria-label="Next" class="glider-next"><svg width="87" height="59" viewBox="0 0 87 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M85 29H0M85 29L56 1M85 29L56 58" stroke-width="2"/>
+					</svg>
+				</button>
+			</div>
+		</nav>
+	</section>
+	
+	<script src="assets/glider.min.js"></script>
+	<script>
+		new Glider(document.querySelector('.glider'), {
+  // Mobile-first defaults
+  slidesToScroll: 1,
+  scrollLock: true,
+  dots: '.dots',
+	rewind: true,
+	duration: 2,
+	draggable: true,
+	dragVelocity: 2,
+  arrows: {
+		prev: '.glider-prev',
+    next: '.glider-next'
+  },
+  responsive: [
+		{
+			breakpoint: 320,
+      settings: {
+				// Set to `auto` and provide item width to adjust to viewport
+        duration: 0.25,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				itemWidth: 150,
+      }
+    },{
+			// screens greater than >= 775px
+      breakpoint: 769,
+      settings: {
+				// Set to `auto` and provide item width to adjust to viewport
+        duration: 0.25,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+      }
+    },{
+			// screens greater than >= 1024px
+      breakpoint: 1025,
+      settings: {
+        duration: 0.25,
+      }
+    }
+  ]
+});
+	</script>
+</body>
+</html>
